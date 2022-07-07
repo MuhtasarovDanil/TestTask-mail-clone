@@ -1,0 +1,35 @@
+@import "../vendor/variables"
+
+.sidebar
+  background-color: $primary-black
+  color: $color-white
+
+  font-size: 2rem
+  text-align: center
+
+  height: 100%
+  width: 16rem
+  padding-top: 1rem
+
+  position: fixed
+  z-index: 1
+  top: 0
+  left: 0
+
+.sidebar__title
+  margin: 1.5rem 0
+
+.sidebar-line
+  margin: 2rem 0
+
+.sidebar-inner, .sidebar-item
+  margin-top: 2rem
+
+  &:first-child
+    margin-top: 0
+
+.sidebar-item__title
+  transition: 0.15s
+
+  &:hover
+    color: $color-blue
