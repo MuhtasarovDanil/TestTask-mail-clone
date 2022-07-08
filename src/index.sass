@@ -2,11 +2,14 @@
 @import "sass/vendor/mixins"
 @import "sass/vendor/util"
 
-@import "sass/blocks/sidebar"
-
 @import "sass/UI/button"
 @import "sass/UI/input"
 @import "sass/UI/modal"
+@import "sass/UI/searchbar"
+
+@import "sass/blocks/header"
+@import "sass/blocks/sidebar"
+@import "sass/blocks/table"
 
 *, *::after, *::before
   box-sizing: border-box
@@ -33,3 +36,9 @@ input
 
   &:focus
     outline-color: $color-blue
+
+.container
+  max-width: 120rem
+  width: 100%
+  padding: 0 1.5rem
+  margin: 0 auto

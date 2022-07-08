@@ -1,5 +1,5 @@
-import {ChangeEvent, FC} from 'react';
-import Button from '../../UI/Button/Button'
+import {ChangeEvent, FC} from 'react'
+import Button, {ButtonColors} from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'
 import FolderStore from '../../../store/FolderStore'
 import Modal, {ModalSize} from '../../UI/Modal/Modal'
@@ -17,6 +17,7 @@ const SideBarModal: FC = observer(() => {
       <Button
         classNames={"mt-20"}
         onClick={FolderStore.addFolder}
+        color={ButtonColors.green}
       >
         Создать папку
       </Button>

@@ -1,6 +1,9 @@
 @import "../vendor/variables"
 @import "../vendor/mixins"
 
+.modal, .modal__content
+  transition: $common-transition
+
 .modal
   @include flex-center()
   @include setWidthHeight(100vw, 100vh)
@@ -8,7 +11,6 @@
   background-color: $modal-bg
   opacity: 0
   pointer-events: none
-  transition: $common-transition
 
 .modal.active
   opacity: 1
@@ -19,7 +21,6 @@
   border-radius: 1.2rem
   background-color: $color-white
   transform: scale(0.5)
-  transition: $common-transition
 
   &--sm
     @include setWidthHeight(30vw, 15vh)

@@ -1,0 +1,47 @@
+@import "../vendor/variables"
+
+.table-header, .table-column
+  &:last-child, &:first-child
+    width: 10%
+
+.table__text--first, .table__checkbox
+  display: inline
+
+.table-header:last-child, .table__date
+  text-align: right
+
+.table-header:first-child, .table-header:nth-child(2)
+  text-align: left
+
+.table-cell:last-child, .table-column:first-child
+  border: none
+
+.table
+  width: 100%
+  color: $color-black
+  border-collapse: collapse
+
+.table-header
+  padding: 2rem 0 2rem 1.5rem
+  color: $color-black
+
+  &:first-child
+    padding-left: 0
+
+.table-cell
+  border-bottom: 1px solid $color-gray
+
+.table-column
+  padding: 2rem 0
+  border-right: 1px solid $color-gray
+
+.table__text
+  padding-left: 1rem
+
+  &--first
+    margin-left: 0.5rem
+
+.table__date
+  font-size: 1.5rem
+
+
