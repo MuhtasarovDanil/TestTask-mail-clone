@@ -1,6 +1,9 @@
 @import "../vendor/variables"
+@import "../vendor/mixins"
 
 .sidebar
+  @include setPositionFixed(0, 0, 1)
+
   background-color: $primary-black
   color: $color-white
 
@@ -10,11 +13,6 @@
   height: 100%
   width: 16rem
   padding-top: 1rem
-
-  position: fixed
-  z-index: 1
-  top: 0
-  left: 0
 
 .sidebar__title
   margin: 1.5rem 0

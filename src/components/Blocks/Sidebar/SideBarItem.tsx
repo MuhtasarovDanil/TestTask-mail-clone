@@ -1,15 +1,15 @@
 import {FC} from 'react'
-import ISidebar from '../../../types/ISidebar'
+import IFolder from '../../../types/IFolder'
 
 interface SideBarItemProps {
-  item: ISidebar
+  item: IFolder
 }
 
-const SideBarItem: FC<SideBarItemProps> = ({item}) => {
+const SideBarItem: FC<SideBarItemProps> = (props) => {
   return (
     <li className="sidebar-item">
       <a className="sidebar-item__title" href="#">
-        {item.title}
+        {props.item.title}
       </a>
     </li>
   )
