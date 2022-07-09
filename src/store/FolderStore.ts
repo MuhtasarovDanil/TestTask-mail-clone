@@ -1,31 +1,35 @@
-import {makeAutoObservable} from "mobx";
+import {makeAutoObservable} from 'mobx'
 import IFolder from '../types/IFolder'
 
 class FolderStore {
   currentFolderTitle: string = ''
 
   folders: IFolder[] = [
-    {id: Date.now(), title: 'Входящие'},
-    {id: Date.now() + 1, title: 'Отправленные'},
-    {id: Date.now() + 2, title: 'Черновики'},
-    {id: Date.now() + 3, title: 'Удаленные'},
-    {id: Date.now() + 4, title: 'Спам'}
+    {id: Date.now(), title: 'Входящие', isCustom: false},
+    {id: Date.now() + 1, title: 'Отправленные', isCustom: false},
+    {id: Date.now() + 2, title: 'Черновики', isCustom: false},
+    {id: Date.now() + 3, title: 'Удаленные', isCustom: false},
+    {id: Date.now() + 4, title: 'Спам', isCustom: false}
   ]
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  changeFolderTitle(title: string) {
+  changeFolderTitle(title: string): void {
     this.currentFolderTitle = title
   }
 
   addFolder = (): void => {
     if (this.currentFolderTitle) {
-      const newItem = {id: Date.now(), title: this.currentFolderTitle}
-      this.folders.push(newItem)
+      const newFolder: IFolder = {id: Date.now(), title: this.currentFolderTitle, isCustom: true}
+      this.folders.push(newFolder)
       this.currentFolderTitle = ''
     }
+  }
+
+  deleteFolder = (id: number): void => {
+    this.folders = this.folders.filter(folder => folder.id !== id)
   }
 }
 

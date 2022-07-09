@@ -3,4 +3,5 @@ export interface IMessage {
   author: string
   message: string
   date: string
+  isSelected: boolean
 }

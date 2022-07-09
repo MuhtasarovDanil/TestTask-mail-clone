@@ -10,13 +10,17 @@ class TableStore {
   ]
 
   tableCells: IMessage[] = [
-    {id: Date.now() + 4, message: 'Привет мир', date: '10 декабря', author: 'Danil'},
-    {id: Date.now() + 5, message: 'Привет друг', date: '25 июня', author: 'Kristina'},
-    {id: Date.now() + 6, message: 'Привет человек', date: '7 декабря', author: 'Noname'}
+    {id: Date.now() + 4, message: 'Привет мир', date: '10 декабря', author: 'Danil', isSelected: false},
+    {id: Date.now() + 5, message: 'Привет друг', date: '25 июня', author: 'Kristina', isSelected: false},
+    {id: Date.now() + 6, message: 'Привет человек', date: '7 декабря', author: 'Noname', isSelected: false}
   ]
 
   constructor() {
     makeAutoObservable(this)
+  }
+
+  selectMessage(message: IMessage): void{
+    message.isSelected = !message.isSelected
   }
 }
 

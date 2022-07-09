@@ -8,10 +8,12 @@ const Table: FC = () => {
     <div className="container">
       <table className="table">
         <thead>
-          {TableStore.tableHeaders.map(header => <TableHeader item={header}/>)}
+          <tr>
+            {TableStore.tableHeaders.map(header => <TableHeader item={header} key={header.id}/>)}
+          </tr>
         </thead>
         <tbody>
-          {TableStore.tableCells.map(cell => <TableCell item={cell}/>)}
+          {TableStore.tableCells.map(cell => <TableCell item={cell} key={cell.id}/>)}
         </tbody>
       </table>
     </div>

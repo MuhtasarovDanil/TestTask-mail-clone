@@ -3,15 +3,13 @@
 
 .sidebar
   @include setPositionFixed(0, 0, 1)
+  @include setWidthHeight(20rem, 100%)
 
   background-color: $primary-black
   color: $color-white
 
   font-size: 2rem
   text-align: center
-
-  height: 100%
-  width: 16rem
   padding-top: 1rem
 
 .sidebar__title
@@ -26,8 +24,17 @@
   &:first-child
     margin-top: 0
 
+.sidebar-item
+  @include flex-center()
+
 .sidebar-item__title
-  transition: 0.15s
+  transition: $common-transition
+  font-size: 1.7rem
 
   &:hover
     color: $color-blue
+
+.sidebar__icon
+  @include setWidthHeight(1.5rem, 1.5rem)
+  margin-left: 0.6rem
+  cursor: pointer

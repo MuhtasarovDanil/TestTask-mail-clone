@@ -7,7 +7,7 @@ class ModalStore {
     makeAutoObservable(this)
   }
 
-  setActive = () => {
+  setActive = (): void => {
     this.active = !this.active
   }
 }
