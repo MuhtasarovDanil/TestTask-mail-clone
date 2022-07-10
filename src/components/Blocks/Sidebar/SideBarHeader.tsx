@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import Button, {ButtonColors} from '../../UI/Button/Button'
 import ModalStore from '../../../store/ModalStore'
-import SideBarModal from './SideBarModal'
+import SideBarModalAdd from './SideBarModalAdd'
 
 const SideBarHeader: FC = () => {
   return (
@@ -13,7 +13,7 @@ const SideBarHeader: FC = () => {
       >
         Добавить папку
       </Button>
-      <SideBarModal/>
+      <SideBarModalAdd/>
     </div>
   )
 }

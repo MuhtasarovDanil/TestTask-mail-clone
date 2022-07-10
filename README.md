@@ -1,5 +1,3 @@
-# Gmail clone
-
 ## Used stack
 ### `React`
 ### `TypeScript`

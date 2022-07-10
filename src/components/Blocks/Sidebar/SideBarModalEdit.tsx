@@ -1,13 +1,18 @@
 import {ChangeEvent, FC} from 'react'
-import Button, {ButtonColors} from '../../UI/Button/Button'
+import {ModalSize} from '../../UI/Modal/ModalAdd'
+import ModalEdit from '../../UI/Modal/ModalEdit'
 import Input from '../../UI/Input/Input'
 import FolderStore from '../../../store/FolderStore'
-import Modal, {ModalSize} from '../../UI/Modal/Modal'
+import Button, {ButtonColors} from '../../UI/Button/Button'
 import {observer} from 'mobx-react-lite'
 
-const SideBarModal: FC = observer(() => {
+interface SideBarModalEditProps {
+  id: number
+}
+
+const SideBarModalEdit: FC<SideBarModalEditProps> = observer((props) => {
   return (
-    <Modal size={ModalSize.small}>
+    <ModalEdit size={ModalSize.small} id={props.id}>
       <Input
         value={FolderStore.currentFolderTitle}
         onChange={(e: ChangeEvent<HTMLInputElement>) => FolderStore.changeFolderTitle(e.target.value)}
@@ -16,13 +21,13 @@ const SideBarModal: FC = observer(() => {
       />
       <Button
         classNames={"mt-20"}
-        onClick={FolderStore.addFolder}
+        onClick={() => FolderStore.editFolder(props.id)}
         color={ButtonColors.green}
       >
-        Создать папку
+        Редактировать папку
       </Button>
-    </Modal>
+    </ModalEdit>
   )
 })
 
-export default SideBarModal
+export default SideBarModalEdit

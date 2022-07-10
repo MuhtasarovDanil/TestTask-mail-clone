@@ -1,31 +1,35 @@
-import {FC, FormEvent, ReactNode} from 'react'
+import {FC, ReactNode, FormEvent} from 'react'
 import ModalStore from '../../../store/ModalStore'
-import {observer} from 'mobx-react-lite'
+import FolderStore from '../../../store/FolderStore'
 
 export enum ModalSize {
   small = 'modal__content--sm',
   default = 'modal__content--default'
 }
 
-interface ModalProps {
-  children: ReactNode,
+interface ModalEditProps {
+  id: number
+  children: ReactNode
   size: ModalSize
 }
 
-const Modal: FC<ModalProps> = observer((props) => {
+const ModalEdit: FC<ModalEditProps> = (props) => {
   const closeModal = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    ModalStore.setActive()
+    ModalStore.setEdit()
   }
 
   return (
     <form
-      className={ModalStore.active ? "modal active" : "modal"}
-      onClick={() => ModalStore.setActive()}
+      className={ModalStore.edit && FolderStore.currentEditFolder === props.id
+        ? "modal active"
+        : "modal"
+      }
+      onClick={() => ModalStore.setEdit()}
       onSubmit={event => closeModal(event)}
     >
       <div
-        className={ModalStore.active
+        className={ModalStore.edit && FolderStore.currentEditFolder === props.id
           ? "modal__content active " + props.size
           : "modal__content " + props.size
         }
@@ -35,6 +39,6 @@ const Modal: FC<ModalProps> = observer((props) => {
       </div>
     </form>
   )
-})
+}
 
-export default Modal
+export default ModalEdit
