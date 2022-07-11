@@ -4,4 +4,5 @@ export interface IMessage {
   message: string
   date: string
   isSelected: boolean
+  folderId: number
 }

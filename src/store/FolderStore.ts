@@ -6,11 +6,11 @@ class FolderStore {
   currentEditFolder: number = 0
 
   folders: IFolder[] = [
-    {id: Date.now(), title: 'Входящие', isCustom: false},
-    {id: Date.now() + 1, title: 'Отправленные', isCustom: false},
-    {id: Date.now() + 2, title: 'Черновики', isCustom: false},
-    {id: Date.now() + 3, title: 'Удаленные', isCustom: false},
-    {id: Date.now() + 4, title: 'Спам', isCustom: false}
+    {id: 1, title: 'Входящие', isCustom: false},
+    {id: 2, title: 'Отправленные', isCustom: false},
+    {id: 3, title: 'Черновики', isCustom: false},
+    {id: 4, title: 'Удаленные', isCustom: false},
+    {id: 5, title: 'Спам', isCustom: false}
   ]
 
   constructor() {
@@ -27,7 +27,9 @@ class FolderStore {
 
   addFolder = (): void => {
     if (this.currentFolderTitle) {
-      const newFolder: IFolder = {id: Date.now(), title: this.currentFolderTitle, isCustom: true}
+      const lastFolderIndex = this.folders.length
+      const newFolder: IFolder = {id: this.folders[lastFolderIndex - 1].id + 1, title: this.currentFolderTitle, isCustom: true}
+
       this.folders.push(newFolder)
       this.clearFolderTitle()
     }

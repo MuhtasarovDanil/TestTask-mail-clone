@@ -3,7 +3,9 @@ import IFolder from '../../../types/IFolder'
 import SideBarModalEdit from './SideBarModalEdit'
 import ModalStore from '../../../store/ModalStore'
 import FolderStore from '../../../store/FolderStore'
+import TableStore from '../../../store/TableStore'
 import {observer} from 'mobx-react-lite'
+import {Link} from 'react-router-dom'
 
 interface SideBarItemProps {
   item: IFolder
@@ -17,9 +19,13 @@ const SideBarItem: FC<SideBarItemProps> = observer((props) => {
 
   return (
     <li className="sidebar-item">
-      <a className="sidebar-item__title" href="#">
+      <Link
+        className="sidebar-item__title"
+        to={`/folder/:${props.item.id}`}
+        onClick={() => TableStore.findTableCellsByFolderId(props.item.id)}
+      >
         {props.item.title}
-      </a>
+      </Link>
       {
         props.item.isCustom &&
           <>
