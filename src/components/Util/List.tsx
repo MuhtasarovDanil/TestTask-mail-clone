@@ -1,6 +1,6 @@
 import {ReactNode} from 'react'
 import {observer} from 'mobx-react-lite'
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 interface ListProps<T> {
   items: T[]

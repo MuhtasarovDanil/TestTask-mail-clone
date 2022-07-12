@@ -28,7 +28,11 @@ class FolderStore {
   addFolder = (): void => {
     if (this.currentFolderTitle) {
       const lastFolderIndex = this.folders.length
-      const newFolder: IFolder = {id: this.folders[lastFolderIndex - 1].id + 1, title: this.currentFolderTitle, isCustom: true}
+      const newFolder: IFolder = {
+        id: this.folders[lastFolderIndex - 1].id + 1,
+        title: this.currentFolderTitle,
+        isCustom: true
+      }
 
       this.folders.push(newFolder)
       this.clearFolderTitle()
@@ -45,9 +49,10 @@ class FolderStore {
   }
 
   editFolder = (id: number): void => {
-    // @ts-ignore
-    this.folders.find(folder => folder.id === id).title = this.currentFolderTitle
-
+    if (this.currentFolderTitle.length > 0) {
+      // @ts-ignore
+      this.folders.find(folder => folder.id === id).title = this.currentFolderTitle
+    }
     this.clearFolderTitle()
   }
 }

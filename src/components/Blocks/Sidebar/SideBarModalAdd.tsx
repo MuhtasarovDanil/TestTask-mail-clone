@@ -13,6 +13,7 @@ const SideBarModalAdd: FC = observer(() => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => FolderStore.changeFolderTitle(e.target.value)}
         placeholder="Введите название папки"
         type="text"
+        maxLength={20}
       />
       <Button
         classNames={"mt-20"}

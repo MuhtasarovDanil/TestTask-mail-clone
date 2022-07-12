@@ -1,4 +1,4 @@
-import React, {FC, ReactNode} from 'react'
+import {FC, ReactNode} from 'react'
 import TableStore from '../../../store/TableStore'
 import TableHeader from '../../Blocks/Table/TableHeader'
 
@@ -16,7 +16,7 @@ const Table: FC<TableProps> = (props) => {
         }
       </tr>
       </thead>
-      <tbody>
+      <tbody className="table-body">
       {props.children}
       </tbody>
     </table>

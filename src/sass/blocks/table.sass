@@ -16,6 +16,9 @@
 .table-cell:last-child, .table-column:last-child
   border: none
 
+.table-header:first-child, .table-column:first-child
+  text-align: center
+
 .table
   width: 100%
   color: $color-black
@@ -24,9 +27,6 @@
 .table-header
   padding: 2rem 0 2rem 1.5rem
   color: $color-black
-
-  &:first-child
-    padding-left: 0
 
 .table-cell
   border-bottom: 1px solid $color-gray
@@ -37,11 +37,19 @@
 
 .table__text
   padding-left: 1rem
+  text-overflow: ellipsis
 
   &--first
-    margin-left: 0.5rem
+    margin-left: 0
 
 .table__date
   font-size: 1.5rem
+
+@media (max-width: $media-xl)
+  .table-column:nth-child(2)
+    width: 30%
+
+  .table-header:last-child, .table__date
+    text-align: center
 
 

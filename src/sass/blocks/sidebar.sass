@@ -7,10 +7,14 @@
 
   background-color: $primary-black
   color: $color-white
+  display: none
 
   font-size: 2rem
   text-align: center
   padding-top: 1rem
+
+.sidebar.active
+  display: block
 
 .sidebar__title
   margin: 1.5rem 0
@@ -26,6 +30,7 @@
 
 .sidebar-item
   @include flex-center()
+  max-width: 20rem
 
 .sidebar-item__title
   transition: $common-transition
@@ -35,6 +40,6 @@
     color: $color-blue
 
 .sidebar__icon
-  @include setWidthHeight(1.5rem, 1.5rem)
+  @include setWidthHeight(2rem, 2rem)
   margin-left: 0.6rem
   cursor: pointer

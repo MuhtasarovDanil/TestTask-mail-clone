@@ -3,7 +3,7 @@ import AppRouter from './components/AppRouter/AppRouter'
 
 const App: FC = () => {
   return (
-    <AppRouter />
+    <AppRouter/>
   )
 }
 
